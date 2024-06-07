@@ -1,9 +1,27 @@
-import { Actor, Color, Engine, Scene, vec } from "excalibur";
+import { Actor, Color, Engine, Keys, Scene, SceneActivationContext, vec } from "excalibur";
 import { Resources } from "../resources";
 
 export class gamificationScene extends Scene{
 
     elementoTexto2?: HTMLElement
+
+    fadeOutElement(elemento: HTMLElement){
+        // Pegar opacidade do elemnto HTML
+        let opacidade = parseFloat(elemento.style.opacity)
+        setInterval ( () => {
+
+            if (opacidade > 0 ) {
+                // Diminuir a opacidade 
+                opacidade -= 0.02
+                // Atualizar a opacidade do elemento
+                elemento.style.opacity = opacidade.toString()
+            }
+
+        }, 20)
+        // Se a opacidade esta visivel
+    }
+
+
 
     onInitialize(engine: Engine<any>): void {
         this.backgroundColor = Color.fromHex("#403f4c")
@@ -34,25 +52,6 @@ export class gamificationScene extends Scene{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // Configurar Actor da imagem
         let actorimg = new Actor({
             pos: vec(engine.halfDrawHeight - 150, 350),
@@ -73,5 +72,19 @@ export class gamificationScene extends Scene{
         this.add(actorimg)
 
         
+        this.input.keyboard.on("press", (event) => {
+            if (event.key == Keys.Enter){
+                engine.goToScene("exposicao")
+            }
+        })
+
+        
+
+
     }
+
+    onDeactivate(context: SceneActivationContext<undefined>): void {
+        this.elementoTexto2?.remove()
+    }
+
 }
