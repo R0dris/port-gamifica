@@ -20,7 +20,7 @@ game.addScene("expo", new expoScene)
 
 
 game.start(loader).then ( () => {
-  game.goToScene("gamificacao", {
+  game.goToScene("expo", {
     sourceOut: new FadeInOut ({duration: 1000})
   })
 })
