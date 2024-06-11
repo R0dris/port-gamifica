@@ -1,5 +1,6 @@
-import { Color, Engine, FadeInOut, Scene, Transition } from "excalibur";
+import { Color, Engine, FadeInOut, Scene, Transition, vec } from "excalibur";
 import { Resources } from "../resources";
+import { Player } from "../actors/player";
 
 export class expoScene extends Scene{
 
@@ -14,7 +15,25 @@ export class expoScene extends Scene{
     onInitialize(engine: Engine<any>): void {
         let tiledMap = Resources.Mapa
         
-        tiledMap.addToScene(this)
+
+        // Definir offset para renderização do mapa
+        let offsetx = 138
+        let offsetY = 100
+
+
+        // Adicionar mapa na cena
+        tiledMap.addToScene(this,{
+            pos: vec(offsetx, offsetY)            
+        })
+
+        this.camera.zoom = 1.4
+        // Criação e configuração do player
+        let jogador = new Player()
+
+        
+        
+        // Adicionar o player na cena
+        this.add(jogador)
 
     }
 }
