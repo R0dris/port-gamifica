@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="29" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="31">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="29" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="35">
  <tileset firstgid="1" source="tileset_paredes.tsx"/>
  <tileset firstgid="8285" source="tileset_estoque.tsx"/>
  <tileset firstgid="9085" source="tileset_generic.tsx"/>
@@ -52,7 +52,11 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="9" name="Personagem"/>
+ <objectgroup id="9" name="Personagem">
+  <object id="31" name="player_spawn" x="462.5" y="492">
+   <point/>
+  </object>
+ </objectgroup>
  <layer id="2" name="Parede" width="29" height="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -60,8 +64,8 @@
 0,0,4159,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4162,0,0,
 0,0,4235,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4389,4238,0,0,
 0,0,4311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4314,0,0,
-0,0,4311,0,0,0,0,9262,0,0,0,0,0,0,9262,0,0,0,0,0,0,9262,0,0,0,0,4314,0,0,
-0,0,4311,0,0,0,0,9278,0,0,0,0,0,0,9278,0,0,0,0,0,0,9278,0,0,0,0,4314,0,0,
+0,0,4311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4314,0,0,
+0,0,4311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4314,0,0,
 0,0,4311,0,0,0,0,8615,0,0,0,0,0,0,8615,0,0,0,0,0,0,8615,0,0,0,0,4314,0,0,
 0,0,4311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4314,0,0,
 0,0,4311,0,0,0,4616,4616,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4314,0,0,
@@ -149,8 +153,19 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="10" name="npc's">
+  <object id="32" name="npc_a" x="239.818" y="201.545">
+   <point/>
+  </object>
+  <object id="33" name="npc_b" x="463.909" y="201.818">
+   <point/>
+  </object>
+  <object id="34" name="npc_c" x="688.188" y="202.563">
+   <point/>
+  </object>
+ </objectgroup>
  <objectgroup id="8" name="Objetos colisores">
-  <object id="10" name="mesa_tenis" x="430.036" y="301.114" width="66.1462" height="96.8864"/>
+  <object id="10" name="mesa_tenis" x="430.036" y="297.989" width="66.1462" height="100.011"/>
   <object id="13" name="mesa_stand_a" x="202" y="215.727" width="75.9375" height="34.2727"/>
   <object id="14" name="mesa_stand_b" x="426.5" y="214.25" width="75.9375" height="36"/>
   <object id="15" name="mesa_stand_c" x="649.773" y="213.523" width="75.9375" height="36.3636"/>
@@ -158,11 +173,8 @@
   <object id="17" x="103.455" y="460" width="38" height="0.181818"/>
   <object id="18" name="rack_tv" x="102" y="321.5" width="47.75" height="138.5"/>
   <object id="19" name="maquina" x="95.875" y="217.75" width="36.25" height="70"/>
-  <object id="20" name="sofá" x="209.5" y="357.932" width="44.875" height="89.5682"/>
-  <object id="21" name="mesa_sinuca" x="688" y="347.625" width="95.8182" height="64.5568"/>
-  <object id="22" name="cadeira_a" x="223.818" y="170" width="32.2253" height="37.9565"/>
-  <object id="23" name="cadeira_b" x="447.856" y="169.667" width="32.2253" height="37.9565"/>
-  <object id="25" name="cadeira_c" x="671.811" y="169.985" width="32.2253" height="37.9565"/>
+  <object id="20" name="sofá" x="209.5" y="351.599" width="44.875" height="93.5682"/>
+  <object id="21" name="mesa_sinuca" x="688" y="342.837" width="95.8182" height="69.0113"/>
   <object id="26" name="escada" x="559.75" y="128.125" width="64.125" height="64"/>
   <object id="27" name="taco_sinuca" x="771.727" y="128" width="26.3636" height="28.1818"/>
   <object id="28" name="planta_b" x="805.875" y="127.875" width="20.1875" height="18.1875"/>

@@ -1,6 +1,7 @@
 import { Actor, CollisionType, Color, Engine, FadeInOut, Scene, Transition, vec } from "excalibur";
 import { Resources } from "../resources";
 import { Player } from "../actors/player";
+import { Npc } from "../actors/npc";
 
 export class expoScene extends Scene{
 
@@ -13,6 +14,11 @@ export class expoScene extends Scene{
     }
     
     onInitialize(engine: Engine<any>): void {
+        // Ativa o modo de debug
+        engine.toggleDebug()
+
+
+
         let tiledMap = Resources.Mapa
         
 
@@ -27,13 +33,49 @@ export class expoScene extends Scene{
         })
 
         this.camera.zoom = 1.4
-        // Criação e configuração do player
-        let jogador = new Player()
 
-        jogador.z = 2
+        // Carregar SpawnPoint do player
+        let spawnPoint = tiledMap.getObjectsByName("player_spawn")[0]
+
+        // Criação e configuração do player
+        let jogador = new Player(vec(spawnPoint.x + offsetx, spawnPoint.y + offsetY))
+
+        jogador.z = 3
                 
         // Adicionar o player na cena
         this.add(jogador)
+
+        // Pegar spawn point dos NPCs
+        let npcSpawnPointA = tiledMap.getObjectsByName("npc_a")[0]
+        let npcSpawnPointB = tiledMap.getObjectsByName("npc_b")[0]
+        let npcSpawnPointC = tiledMap.getObjectsByName("npc_c")[0]
+
+        // Configurar NPCs
+        let npcA = new Npc(
+            vec(npcSpawnPointA.x + offsetx, npcSpawnPointA.y + offsetY),
+            Color.Blue,
+            "NpcA"
+        )
+        
+        let npcB = new Npc(
+            vec(npcSpawnPointB.x + offsetx, npcSpawnPointB.y + offsetY),
+            Color.Chartreuse,
+            "NpcB"
+        )
+        
+        let npcC = new Npc(
+            vec(npcSpawnPointC.x + offsetx, npcSpawnPointC.y + offsetY),
+            Color.Gray,
+            "NpcC"
+        )
+
+        // Adicionar os npcs na tela
+        this.add(npcA)
+        this.add(npcB)
+        this.add(npcC)
+
+        // Focar a câmera no player
+            this.camera.strategy.lockToActor(jogador)
 
         // Adicionar colisão com cada objeto
         // Pegar a camada de objetos colisores
