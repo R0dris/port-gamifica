@@ -15,9 +15,9 @@ export class expoScene extends Scene{
     
     onInitialize(engine: Engine<any>): void {
         // Ativa o modo de debug
-        engine.toggleDebug()
+        // engine.toggleDebug()
 
-
+        this.backgroundColor = Color.Black
 
         let tiledMap = Resources.Mapa
         
@@ -40,7 +40,7 @@ export class expoScene extends Scene{
         // Criação e configuração do player
         let jogador = new Player(vec(spawnPoint.x + offsetx, spawnPoint.y + offsetY))
 
-        jogador.z = 3
+        jogador.z = 2
                 
         // Adicionar o player na cena
         this.add(jogador)
@@ -75,7 +75,8 @@ export class expoScene extends Scene{
         this.add(npcC)
 
         // Focar a câmera no player
-            this.camera.strategy.lockToActor(jogador)
+         this.camera.strategy.lockToActor(jogador)
+        this.camera.zoom = 1.9
 
         // Adicionar colisão com cada objeto
         // Pegar a camada de objetos colisores
