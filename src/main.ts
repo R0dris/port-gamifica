@@ -4,6 +4,7 @@ import { loader } from "./resources";
 import { historyScene } from "./scenes/historyScenes";
 import { gamificationScene } from "./scenes/gamificationScene";
 import { expoScene } from "./scenes/expoScene";
+import { CaseScene } from "./scenes/caseScene";
 
 
 
@@ -18,6 +19,7 @@ game.addScene("bemvindo", new welcomeScene())
 game.addScene("historia", new historyScene())
 game.addScene("gamificacao", new gamificationScene())
 game.addScene("expo", new expoScene)
+game.addScene("case", new CaseScene)
 
 
 game.start(loader).then ( () => {

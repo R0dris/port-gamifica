@@ -1,38 +1,43 @@
 import { Actor, Color, Engine, FadeInOut, Keys, Scene, SceneActivationContext, Transition, vec } from "excalibur";
 import { Resources } from "../resources";
 
-export class gamificationScene extends Scene{
-
+export class CaseScene extends Scene{
+    private objInteracao: any
+    private textDaCena: String = ""
     elementoTexto2?: HTMLElement
-
-    fadeOutElement(elemento: HTMLElement){
-        // Pegar opacidade do elemnto HTML
-        let opacidade = parseFloat(elemento.style.opacity)
-        setInterval ( () => {
-
-            if (opacidade > 0 ) {
-                // Diminuir a opacidade 
-                opacidade -= 0.02
-                // Atualizar a opacidade do elemento
-                elemento.style.opacity = opacidade.toString()
-            }
-
-        }, 20)
-        // Se a opacidade esta visivel
-    }
 
     onTransition(direction: "in" | "out"): Transition | undefined {
         return new FadeInOut ({
             direction: direction,
             color: Color.Black,
-            duration: 1000
+            duration: 500
         })
+        
     }
 
     onInitialize(engine: Engine<any>): void {
-        this.backgroundColor = Color.fromHex("#403f4c")
+        this.backgroundColor = Color.Gray
 
 
+
+        engine.input.keyboard.on("press", (event) => {
+            if (event.key == Keys.Esc){
+                engine.goToScene("expo", {
+                    sourceOut: new FadeInOut ({duration: 1000})
+                })
+            }
+        })
+    }
+
+
+
+    onActivate(context: SceneActivationContext<undefined>): void {
+        // Pegar dados da cena passada
+        this.objInteracao = context.data
+
+        if (this.objInteracao == "mesa_stand_a") {
+            this.textDaCena = "Essa é a descrição do case A"
+        
         // Criar elemento com a descrição da empres
         this.elementoTexto2 = document.createElement("div") as HTMLElement    
 
@@ -44,6 +49,8 @@ export class gamificationScene extends Scene{
         containerGame.appendChild(this.elementoTexto2)
 
         // Adicionar classe na div criada
+    
+    
         this.elementoTexto2.classList.add("gamificacao")
 
         // Adicionar titulo e paragrafo dentro do conteudo da div
@@ -55,43 +62,19 @@ export class gamificationScene extends Scene{
           desde programas de treinamento interativo até sistemas de recompensa e engajamento de funcionários.
         </p>`
 
-
-
-
-        // Configurar Actor da imagem
-        let actorimg = new Actor({
-            pos: vec(engine.halfDrawHeight - 150, 350),
-
-        })
-
-        // Utilizar imagem 
-        let imagemGame = Resources.npcA.toSprite()
-
-
-
-        // Configurar o ator para usar a imagem
-        actorimg.graphics.add(imagemGame)
-
-
-        // Adicionando imagem na tela
-        this.add(actorimg)
-
+        }
         
-        this.input.keyboard.on("press", (event) => {
-            if (event.key == Keys.Enter){
-                engine.goToScene("expo", {
-                    sourceOut: new FadeInOut ({duration: 1000})
-                })
-            }
-        })
+        if (this.objInteracao == "mesa_stand_b") {
+            this.textDaCena = "Essa é a descrição do case B"
+            
+        }
 
-        
+        if (this.objInteracao == "mesa_stand_c") {
+            this.textDaCena = "Essa é a descrição do case C"
+            
+        }
 
 
     }
-
-    onDeactivate(context: SceneActivationContext<undefined>): void {
-        this.elementoTexto2?.remove()
-    }
-
+    
 }

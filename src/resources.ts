@@ -14,6 +14,9 @@ import tsxEstoquePath from "./maps/tileset_estoque.tsx?url"
 import tsxBibliotecaPath from "./maps/tileset_bliblioteca.tsx?url"
 import tmxMapaPath from "./maps/showrrom_map.tmx?url"
 import playerSpriteSheet from "./sprites/player_sprite.png"
+import npcASpriteSheet from "./sprites/npcA_sprite.png"
+import npcBSpriteSheet from "./sprites/npcB_sprite.png"
+import npcCSpriteSheet from "./sprites/npcC_sprite.png"
 
 export const Resources = {
   Sword: new ImageSource(sword),
@@ -21,6 +24,9 @@ export const Resources = {
   PlayerSpriteSheet: new ImageSource(playerSpriteSheet, {filtering: ImageFiltering.Pixel}),
   Logov: new ImageSource(logoV),
   ImageG: new ImageSource(imgG),
+  npcA: new ImageSource(npcASpriteSheet),
+  npcB: new ImageSource(npcBSpriteSheet),
+  npcC: new ImageSource(npcCSpriteSheet),
   Mapa: new TiledResource(tmxMapaPath, {
 
     pathMap:[

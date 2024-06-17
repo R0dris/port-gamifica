@@ -244,6 +244,44 @@ export class Player extends Actor{
                 this.graphics.use(this.ultimaDirecao + "-idle")
             }
         })
+
+        engine.input.keyboard.on("press", (event) => {
+            // Se a tecla pressionada for F
+            if (event.key == Keys.Space && this.objetoProximo){
+                // Indentificzr o alvo da interação
+                if (this.ultimoColisor?.owner.name == "mesa_stand_a") {
+                    console.log("Esta é a mesa A");
+                    engine.goToScene("case", {
+                        sceneActivationData:{
+                            // Passa o nome do Actor que interagiu com o player
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+                }
+
+                if (this.ultimoColisor?.owner.name == "mesa_stand_b") {
+                    console.log("Esta é a mesa b");
+                    engine.goToScene("case", {
+                        sceneActivationData:{
+                            // Passa o nome do Actor que interagiu com o player
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+                }
+
+                if (this.ultimoColisor?.owner.name == "mesa_stand_c") {
+                    console.log("Esta é a mesa C");
+                    engine.goToScene("case", {
+                        sceneActivationData:{
+                            // Passa o nome do Actor que interagiu com o player
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+                }
+                
+            }
+        })
+
     }
 
     onPreCollisionResolve(self: Collider, other: Collider, side: Side, contact: CollisionContact): void {
