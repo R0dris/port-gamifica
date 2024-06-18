@@ -1,4 +1,4 @@
-import { ImageFiltering, ImageSource, Loader } from "excalibur";
+import { ImageFiltering, ImageSource, Loader, Sound } from "excalibur";
 import { TiledResource } from "@excaliburjs/plugin-tiled";
 
 import sword from "./images/sword.png";
@@ -18,12 +18,15 @@ import npcASpriteSheet from "./sprites/npcA_sprite.png"
 import npcBSpriteSheet from "./sprites/npcB_sprite.png"
 import npcCSpriteSheet from "./sprites/npcC_sprite.png"
 
+import mine from "./sounds/C418 - Dry Hands - Minecraft Volume Alpha.mp3"
+
 export const Resources = {
   Sword: new ImageSource(sword),
   Logo: new ImageSource(logo),
   PlayerSpriteSheet: new ImageSource(playerSpriteSheet, {filtering: ImageFiltering.Pixel}),
   Logov: new ImageSource(logoV),
   ImageG: new ImageSource(imgG),
+  mineBGM: new Sound(mine),
   npcA: new ImageSource(npcASpriteSheet),
   npcB: new ImageSource(npcBSpriteSheet),
   npcC: new ImageSource(npcCSpriteSheet),
