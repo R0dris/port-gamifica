@@ -87,7 +87,7 @@
   line-height: 2;
 }
 
-.case1{
+.texto-case{
   width: 500px;
   height: 600px;
   padding: 40px;
@@ -98,19 +98,19 @@
   font-family: "Anta";
   position: absolute;
   top: 5%;
-  right: 4%;
+  left: 4%;
   
 }
 
 
-.case1 h2{
+.texto-case h2{
   margin-bottom: 40px;
 
   font-size: 40px;
   text-align: center;
 }
 
-.case1 p{
+.texto-case p{
   font-size: 20px;
   text-align: justify;
 

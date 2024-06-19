@@ -28,9 +28,15 @@ export class CaseScene extends Scene{
             }
         })
 
+        // Criar elemento com a descrição do texto
+        this.elementoTexto3 = document.createElement("div") as HTMLElement
+        this.elementoTexto3.classList.add("texto-case")
 
-
+        // Adicionar o elemento ao container game
+        let containerGame = document.querySelector(".container-game")
+        containerGame?.appendChild(this.elementoTexto3)
     }
+
 
 
 
@@ -38,40 +44,32 @@ export class CaseScene extends Scene{
     onActivate(context: SceneActivationContext<undefined>): void {
         // Pegar dados da cena passada
         this.objInteracao = context.data
-
-        if (this.objInteracao == "mesa_stand_a") {
-
-        // Criar elemento com a descrição da empresa
-        this.elementoTexto3! = document.createElement("div") as HTMLElement    
-
-        // Definir opacidade do elemento para  1
         this.elementoTexto3!.style.opacity = "1"
 
-        // Inserir elemento no container-game
-        let containerGame = document.querySelector(".container-game") as HTMLElement
-        containerGame.appendChild(this.elementoTexto3!)
-
-        // Adicionar classe na div criada
-        this.elementoTexto3!.classList.add("case1")
-
-        // Adicionar titulo e paragrafo dentro do conteudo da div
-        this.elementoTexto3!.innerHTML= `<h2>Case 1</h2>
-        <p> alsaldlasdsadas</p>`
-        
+        if (this.objInteracao == "mesa_stand_a") {
+            this.elementoTexto3!.innerHTML = `<h2> Case 1</h2> 
+            <p>adfvgfqdfgbdngfd</p>`
+            
         }
 
         
         if (this.objInteracao == "mesa_stand_b") {
             this.textDaCena = "Essa é a descrição do case B"
-            
+            this.elementoTexto3!.innerHTML = `<h2> Case 2</h2> 
+            <p>adfvgfq4243234</p>`
         }
 
         if (this.objInteracao == "mesa_stand_c") {
             this.textDaCena = "Essa é a descrição do case C"
-            
+            this.elementoTexto3!.innerHTML = `<h2> Case 3</h2> 
+            <p>132456754321</p>`
         }
 
 
+    }
+
+    onDeactivate(context: SceneActivationContext<undefined>): void {
+        this.elementoTexto3!.style.opacity = "0"
     }
     
 }
